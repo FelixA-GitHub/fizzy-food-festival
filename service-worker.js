@@ -1,4 +1,4 @@
-const APP_PREFIX = 'FoodEvent-';     
+const APP_PREFIX = 'FoodEvent-';
 const VERSION = 'version_01';
 const CACHE_NAME = APP_PREFIX + VERSION
 const FILES_TO_CACHE = [
@@ -32,7 +32,7 @@ self.addEventListener('fetch', function (e) {
       // return request || fetch(e.request)
     })
   )
-})
+});
 
 // Cache resources
 self.addEventListener('install', function (e) {
@@ -58,7 +58,7 @@ self.addEventListener('activate', function (e) {
 
       return Promise.all(keyList.map(function (key, i) {
         if (cacheKeeplist.indexOf(key) === -1) {
-          console.log('deleting cache : ' + keyList[i] );
+          console.log('deleting cache : ' + keyList[i]);
           return caches.delete(keyList[i]);
         }
       }));
